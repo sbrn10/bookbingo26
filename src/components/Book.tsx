@@ -21,6 +21,15 @@ export default function Book({ index }: BookProps) {
     ctx.setShowModal(true);
   }
 
+  function populateEmojis(emoji, index) {
+    return (
+      <img
+        src={`https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/${emoji}.png`}
+        key={`${emoji}${index}`}
+        style={{ width: "18px" }}
+      ></img>
+    );
+  }
   return (
     <>
       <div
@@ -40,6 +49,7 @@ export default function Book({ index }: BookProps) {
         <span style={{ fontSize: "0.8em", fontFamily: "sans-serif" }}>
           {index + 1}. {ctx.bingoCategories[index]}
         </span>
+        <div className={classes.overlay}>{card.emoji.map(populateEmojis)}</div>
       </div>
     </>
   );
