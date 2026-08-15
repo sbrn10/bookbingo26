@@ -1,0 +1,31 @@
+.box {
+  background-color: aliceblue;
+  border: 1px solid gray;
+  /* width: 20% */
+  flex: 1;
+  min-height: 80px;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container {
+  width: 12rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+@media (min-width: 24rem) {
+  .container {
+    width: 24rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .container {
+    width: 48rem;
+  }
+}
