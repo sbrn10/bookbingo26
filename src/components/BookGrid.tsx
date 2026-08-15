@@ -1,58 +1,37 @@
 import classes from "../css/grid.module.css";
-import { useContext } from "react";
-import { bingoContext } from "../store/bingoContext";
+import Book from "./Book";
 
 export default function BookGrid() {
-  const ctx = useContext(bingoContext);
-  console.log(ctx);
-
   return (
     <>
-      {/* <Box>
-        <Grid container columns={5} className={classes.grid}>
-          {Array.from(Array(25)).map((_, index) => (
-            <div style={{ width: "100px", height: "100px" }}>{`${index}`}</div>
-          ))}
-        </Grid>
-      </Box> */}
       <div className={classes.container}>
         <div className={classes.row}>
           {Array.from(Array(5)).map((_, index) => (
-            <div className={`${classes.box}`} key={index + 1}>
-              {index + 1}
-            </div>
+            <Book key={index} index={index}></Book>
           ))}
         </div>
 
         <div className={classes.row}>
           {Array.from(Array(5)).map((_, index) => (
-            <div className={`${classes.box}`} key={index + 6}>
-              {index + 6}
-            </div>
+            <Book key={index + 5} index={index + 5}></Book>
           ))}
         </div>
 
         <div className={classes.row}>
           {Array.from(Array(5)).map((_, index) => (
-            <div className={`${classes.box}`} key={index + 11}>
-              {index + 11}
-            </div>
+            <Book key={index + 10} index={index + 10}></Book>
           ))}
         </div>
 
         <div className={classes.row}>
           {Array.from(Array(5)).map((_, index) => (
-            <div className={`${classes.box}`} key={index + 16}>
-              {index + 16}
-            </div>
+            <Book key={index + 15} index={index + 15}></Book>
           ))}
         </div>
 
         <div className={classes.row}>
           {Array.from(Array(5)).map((_, index) => (
-            <div className={`${classes.box}`} key={index + 21}>
-              {index + 21}
-            </div>
+            <Book key={index + 20} index={index + 20}></Book>
           ))}
         </div>
       </div>
