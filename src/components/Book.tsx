@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import bingoContext from "../store/bingoContext";
+import classes from "../css/grid.module.css";
 
 interface BookProps {
   index: number;
@@ -9,26 +10,22 @@ interface BookProps {
 export default function Book({ index }: BookProps) {
   const ctx = useContext(bingoContext);
   const card = ctx.bookList[index];
+  const colors = ["#0000", "rgba(150, 183, 160, 1)", "rgb(82, 131, 255)"];
+
+  const bgColor = colors[card.readStatus >= 3 ? 0 : card.readStatus];
 
   function handleCardClick() {
-    console.log("click");
+    if (!card.readStatus) return;
+
+    ctx.setShowModalIndex(index);
+    ctx.setShowModal(true);
   }
 
   return (
     <>
       <div
-        id={`card${index}`}
-        style={{
-          width: 125,
-          minHeight: 125,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "aliceblue",
-          padding: "3px",
-          gap: "2px",
-          position: "relative",
-        }}
+        className={classes.book}
+        style={{ backgroundColor: bgColor }}
         onClick={handleCardClick}
       >
         <img

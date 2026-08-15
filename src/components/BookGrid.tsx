@@ -1,7 +1,13 @@
 import classes from "../css/grid.module.css";
 import Book from "./Book";
+import bingoContext from "../store/bingoContext";
+import { useContext } from "react";
+import BookDetails from "./BookDetails";
+import Modal from "./UI/Modal";
 
 export default function BookGrid() {
+  const ctx = useContext(bingoContext);
+
   return (
     <>
       <div className={classes.container}>
@@ -35,6 +41,11 @@ export default function BookGrid() {
           ))}
         </div>
       </div>
+      {ctx.showModal && (
+        <Modal>
+          <BookDetails index={ctx.showModalIndex}></BookDetails>
+        </Modal>
+      )}
     </>
   );
 }

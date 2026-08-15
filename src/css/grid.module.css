@@ -5,19 +5,36 @@
   flex: 1;
   min-height: 80px;
 }
+.book {
+  /* max-width: 20%;
+  max-height:20%; */
+  width: 125px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 3px;
+  gap: 2px;
+  position: "relative";
+  border-radius: 3px;
+}
 
 .row {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .container {
-  width: 12rem;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
+/* 
 @media (min-width: 24rem) {
   .container {
     width: 24rem;
@@ -28,4 +45,4 @@
   .container {
     width: 48rem;
   }
-}
+} */

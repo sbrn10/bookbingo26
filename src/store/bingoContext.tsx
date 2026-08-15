@@ -13,6 +13,8 @@ export type ContextType = {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   bookList: BookType[];
+  showModalIndex: number;
+  setShowModalIndex: Dispatch<SetStateAction<number>>;
 };
 
 export const bingoContext = createContext<ContextType>({} as ContextType);
