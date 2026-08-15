@@ -4,6 +4,7 @@ export type BookType = {
   title: string;
   author: string;
   readStatus: number;
+  image: string;
   emoji: string[];
 };
 
