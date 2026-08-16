@@ -19,7 +19,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
   return (
     <>
       <form ref={formRef}>
-        <label htmlFor="title">Title: </label>
+        <label htmlFor="title">Title:</label>
         <input
           id="title"
           name="title"
@@ -27,7 +27,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
           disabled={!isEditable}
         ></input>
 
-        <label htmlFor="author">Author: </label>
+        <label htmlFor="author">Author:</label>
         <input
           id="author"
           name="author"
@@ -40,6 +40,17 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
           className={classes.cover}
           src={card.image ? card.image : "https://placehold.co/75x75/ccc/ccc"}
         ></img>
+
+        <label htmlFor="notes" hidden={!isEditable && !card.desc}>
+          Notes:
+        </label>
+        <textarea
+          id="notes"
+          name="notes"
+          hidden={!isEditable && !card.desc}
+          disabled={!isEditable}
+          defaultValue={card.desc}
+        ></textarea>
       </form>
       {isEditable && (
         <div className={classes.center}>
