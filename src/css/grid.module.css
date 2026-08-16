@@ -1,28 +1,19 @@
-.box {
-  background-color: aliceblue;
-  border: 1px solid gray;
-  /* width: 20% */
-  flex: 1;
-  min-height: 80px;
+.grid {
+  display: grid;
+  width: 700px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
+
 .book {
-  /* max-width: 20%;
-  max-height:20%; */
-  width: 125px;
-  height: 125px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aliceblue;
   padding: 3px;
   gap: 2px;
   position: relative;
   border-radius: 3px;
-}
-
-.row {
-  display: flex;
-  gap: 0.6rem;
+  border: 1px solid #cccc;
 }
 
 .container {

@@ -11,36 +11,13 @@ export default function BookGrid() {
   return (
     <>
       <div className={classes.container}>
-        <div className={classes.row}>
-          {Array.from(Array(5)).map((_, index) => (
+        <div className={classes.grid}>
+          {Array.from(Array(25)).map((_, index) => (
             <Book key={index} index={index}></Book>
           ))}
         </div>
-
-        <div className={classes.row}>
-          {Array.from(Array(5)).map((_, index) => (
-            <Book key={index + 5} index={index + 5}></Book>
-          ))}
-        </div>
-
-        <div className={classes.row}>
-          {Array.from(Array(5)).map((_, index) => (
-            <Book key={index + 10} index={index + 10}></Book>
-          ))}
-        </div>
-
-        <div className={classes.row}>
-          {Array.from(Array(5)).map((_, index) => (
-            <Book key={index + 15} index={index + 15}></Book>
-          ))}
-        </div>
-
-        <div className={classes.row}>
-          {Array.from(Array(5)).map((_, index) => (
-            <Book key={index + 20} index={index + 20}></Book>
-          ))}
-        </div>
       </div>
+
       {ctx.showModal && (
         <Modal>
           <BookDetails index={ctx.showModalIndex}></BookDetails>

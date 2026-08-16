@@ -6,6 +6,7 @@ export type BookType = {
   readStatus: number;
   image: string;
   emoji: string[];
+  desc: string;
 };
 
 export type ContextType = {

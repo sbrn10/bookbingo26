@@ -21,7 +21,7 @@ export default function Book({ index }: BookProps) {
     ctx.setShowModal(true);
   }
 
-  function populateEmojis(emoji, index) {
+  function populateEmojis(emoji: string, index: number) {
     return (
       <img
         src={`https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/${emoji}.png`}
