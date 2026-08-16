@@ -12,9 +12,18 @@ export default function BookGrid() {
   return (
     <>
       <div className={classes.container}>
+        <h2>
+          <a href="https://2026-book-bingo.tumblr.com">@2026-book-bingo</a> from
+          @batmanisagatewaydrug
+        </h2>
         <div className={classes.grid}>
           {Array.from(Array(25)).map((_, index) => (
-            <Book key={index} index={index}></Book>
+            <Book
+              key={index}
+              index={index}
+              array={ctx.bookList}
+              isEditable={ctx.isEditable}
+            ></Book>
           ))}
         </div>
       </div>

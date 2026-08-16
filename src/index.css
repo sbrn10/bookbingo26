@@ -11,7 +11,6 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  box-sizing: border-box;
 }
 
 /* Sections
@@ -353,6 +352,15 @@ template {
   display: none;
 }
 
+/**
+ * User Additions
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   font-family: sans-serif;

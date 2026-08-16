@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import bingoContext from "../store/bingoContext";
+import bingoContext, { type BookType } from "../store/bingoContext";
 import classes from "../css/grid.module.css";
 import { useState } from "react";
 import "../css/overlay.css";
@@ -7,12 +7,13 @@ import "../css/overlay.css";
 interface BookProps {
   index: number;
   key: number;
+  array: BookType[];
+  isEditable: boolean;
 }
 
-export default function Book({ index }: BookProps) {
+export default function Book({ index, array, isEditable }: BookProps) {
   const ctx = useContext(bingoContext);
-  const isEditable = ctx.isEditable;
-  const card = ctx.bookList[index];
+  const card = array[index];
   const colors = ["#0000", "rgba(150, 183, 160, 1)", "rgb(82, 131, 255)"];
 
   const [bgColor, setBgColor] = useState(colors[card.readStatus]);
