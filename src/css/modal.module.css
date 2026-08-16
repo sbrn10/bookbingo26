@@ -64,8 +64,25 @@ form input:disabled {
   --xOffset: 150px;
 }
 
-.normalText {
-  text-align: start;
+.center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.center button {
+  border-radius: 2rem;
+  border: none;
+}
+
+.center button:hover {
+  background-color: lightgray;
+}
+.delete {
+  /* width: 80px; */
+  color: crimson;
 }
 
 /* Medium devices such as tablets (1024px or lesser) */

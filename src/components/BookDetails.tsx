@@ -1,6 +1,6 @@
 import classes from "../css/modal.module.css";
 import bingoContext from "../store/bingoContext";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 
 interface BookDetailsProps {
   index?: number;
@@ -11,9 +11,14 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
   const ctx = useContext(bingoContext);
   const card = ctx.bookList[index];
 
+  const formRef = useRef<null | HTMLFormElement>(null);
+
+  function handleSubmit() {
+    formRef.current.submit();
+  }
   return (
     <>
-      <form>
+      <form ref={formRef}>
         <label htmlFor="title">Title: </label>
         <input
           id="title"
@@ -31,10 +36,19 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
         ></input>
 
         <label>Cover: </label>
-        <img className={classes.cover}
+        <img
+          className={classes.cover}
           src={card.image ? card.image : "https://placehold.co/75x75/ccc/ccc"}
         ></img>
       </form>
+      {isEditable && (
+        <div className={classes.center}>
+          <button type="submit" onClick={handleSubmit}>
+            Add
+          </button>
+          <button className={classes.delete}>Delete</button>
+        </div>
+      )}
     </>
   );
 }

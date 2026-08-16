@@ -37,7 +37,7 @@ export default function CtxProvider({ children }) {
 
   const [showModalIndex, setShowModalIndex] = useState(0);
 
-  const [isEditable, setIsEditable] = useState(true);
+  const [isEditable, setIsEditable] = useState(false);
 
   const ctxValue: ContextType = {
     bingoCategories,
