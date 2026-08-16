@@ -36,6 +36,9 @@ export default function CtxProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
 
   const [showModalIndex, setShowModalIndex] = useState(0);
+
+  const [isEditable, setIsEditable] = useState(true);
+
   const ctxValue: ContextType = {
     bingoCategories,
     showModal,
@@ -43,6 +46,8 @@ export default function CtxProvider({ children }) {
     bookList,
     showModalIndex,
     setShowModalIndex,
+    isEditable,
+    setIsEditable
     // bingoCategories: bingoState.bingoCategories,
     // bookList: bingoState.bookList,
     // updateReadStatus,

@@ -46,7 +46,7 @@ export default function Book({ index }: BookProps) {
           }
           title={card.title ? `${card.title} by ${card.author}` : ""}
         ></img>
-        <span style={{ fontSize: "0.8em", fontFamily: "sans-serif" }}>
+        <span style={{ fontSize: "0.8em" }}>
           {index + 1}. {ctx.bingoCategories[index]}
         </span>
         <div className={classes.overlay}>{card.emoji.map(populateEmojis)}</div>

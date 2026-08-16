@@ -352,3 +352,8 @@ template {
 [hidden] {
   display: none;
 }
+
+
+html {
+  font-family: sans-serif;
+}

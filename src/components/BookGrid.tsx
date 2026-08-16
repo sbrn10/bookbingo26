@@ -20,7 +20,10 @@ export default function BookGrid() {
 
       {ctx.showModal && (
         <Modal>
-          <BookDetails index={ctx.showModalIndex}></BookDetails>
+          <BookDetails
+            index={ctx.showModalIndex}
+            isEditable={ctx.isEditable}
+          ></BookDetails>
         </Modal>
       )}
     </>

@@ -4,31 +4,36 @@ import { useContext } from "react";
 
 interface BookDetailsProps {
   index?: number;
+  isEditable?: boolean;
 }
 
-export default function BookDetails({ index }: BookDetailsProps) {
+export default function BookDetails({ index, isEditable }: BookDetailsProps) {
   const ctx = useContext(bingoContext);
   const card = ctx.bookList[index];
 
   return (
     <>
       <form>
-        <div className={classes.displayBlock}>
-          <label htmlFor="title">Title: </label>
-          <span>{card.title}</span>
-        </div>
+        <label htmlFor="title">Title: </label>
+        <input
+          id="title"
+          name="title"
+          defaultValue={card.title}
+          disabled={!isEditable}
+        ></input>
 
-        <div className={classes.displayBlock}>
-          <label htmlFor="author">Author: </label>
-          <span>{card.author}</span>
-        </div>
+        <label htmlFor="author">Author: </label>
+        <input
+          id="author"
+          name="author"
+          defaultValue={card.author}
+          disabled={!isEditable}
+        ></input>
 
-        <div className={classes.inputBlock}>
-          <label>Cover Image: </label>
-          <img
-            src={card.image ? card.image : "https://placehold.co/75x75/ccc/ccc"}
-          ></img>
-        </div>
+        <label>Cover: </label>
+        <img className={classes.cover}
+          src={card.image ? card.image : "https://placehold.co/75x75/ccc/ccc"}
+        ></img>
       </form>
     </>
   );

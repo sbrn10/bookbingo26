@@ -16,6 +16,8 @@ export type ContextType = {
   bookList: BookType[];
   showModalIndex: number;
   setShowModalIndex: Dispatch<SetStateAction<number>>;
+  isEditable: boolean;
+  setIsEditable: Dispatch<SetStateAction<boolean>>;
 };
 
 export const bingoContext = createContext<ContextType>({} as ContextType);

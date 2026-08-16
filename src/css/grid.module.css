@@ -38,15 +38,15 @@
   scale: 0.8;
   z-index: 2;
 }
-/* 
-@media (min-width: 24rem) {
-  .container {
-    width: 24rem;
+
+/* @media (max-width: 699px) {
+  .grid {
+    width: 400px;
   }
 }
 
-@media (min-width: 48rem) {
+@media (max-width: 400px) {
   .container {
-    width: 48rem;
+    width: 350px;
   }
 } */
