@@ -101,7 +101,7 @@ export default function Book({ index }: BookProps) {
         onMouseLeave={handleHoverOff}
       >
         <img
-          style={{ height: 90, objectFit: "contain" }}
+          className={classes.bookCover}
           src={
             card.image
               ? card.image

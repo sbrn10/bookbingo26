@@ -1,22 +1,29 @@
 .grid {
   display: grid;
   width: 700px;
+  height: 700px;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 1rem;
 }
 
 .book {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3px;
-  gap: 2px;
+  gap: 6px;
   position: relative;
   border-radius: 3px;
   border: 1px solid #cccc;
+}
+
+.bookCover {
+  height: 85px;
+  object-fit: contain;
 }
 
 .container {
