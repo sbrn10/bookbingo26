@@ -1,4 +1,4 @@
-export function isValidMimeType(file) {
+export function isValidMimeType(file: File) {
   const allowedMimeTypes = [
     "image/jpeg",
     "image/png",

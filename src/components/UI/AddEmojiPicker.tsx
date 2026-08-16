@@ -8,14 +8,10 @@ import classes from "../../css/emojiPicker.module.css";
 export default function AddEmojiPicker() {
   const ctx = useContext(bingoContext);
 
-  function handleClick(
-    emoji: EmojiClickData,
-    _event: MouseEvent,
-    { collapseToReactions },
-  ) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function handleClick(emoji: EmojiClickData, _event: MouseEvent) {
     ctx.addEmoji(ctx.showModalIndex, emoji.unified);
     ctx.setShowEmojiPicker(false);
-    collapseToReactions();
   }
 
   function defaultCancel() {
@@ -34,7 +30,7 @@ export default function AddEmojiPicker() {
         />
       </div>
     </>,
-    document.getElementById(`card${ctx.showModalIndex}`),
+    document.getElementById(`card${ctx.showModalIndex}`)!,
   );
   // return (<div>
   //     <EmojiPicker

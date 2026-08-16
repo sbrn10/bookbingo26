@@ -11,8 +11,8 @@ import { isValidMimeType } from "../util/util";
 import { type BookType } from "../store/bingoContext";
 
 interface BookDetailsProps {
-  index?: number;
-  isEditable?: boolean;
+  index: number;
+  isEditable: boolean;
 }
 
 export default function BookDetails({ index, isEditable }: BookDetailsProps) {
@@ -22,7 +22,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
   const fileInputRef = useRef<null | HTMLInputElement>(null);
   const formRef = useRef<null | HTMLFormElement>(null);
 
-  const [file, setFile] = useState<null | File>(null);
+  const [file, setFile] = useState<undefined | File>(undefined);
   const [imgUrl, setImgUrl] = useState(card.image);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
   }, [file]);
 
   function handleSubmit() {
-    const formData = new FormData(formRef.current);
+    const formData = new FormData(formRef.current!);
     const data = Object.fromEntries(formData.entries());
 
     data.image = imgUrl;
@@ -80,7 +80,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
 
       setFile(pickedFile);
     } else {
-      setFile(null);
+      setFile(undefined);
     }
   }
 
@@ -114,7 +114,7 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
           className={classes.cover}
           src={imgUrl ? imgUrl : "https://placehold.co/75x75/ccc/ccc"}
           onClick={() => {
-            fileInputRef.current.click();
+            fileInputRef.current!.click();
           }}
         ></img>
 

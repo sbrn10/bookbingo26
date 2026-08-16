@@ -4,7 +4,9 @@ import bingoContext from "../../store/bingoContext";
 
 import classes from "../../css/modal.module.css";
 
-export default function Modal({ children }) {
+import { type PropsWithChildren } from "react";
+
+export default function Modal({ children }: PropsWithChildren) {
   const ctx = useContext(bingoContext);
 
   function defaultCancel() {
@@ -18,6 +20,6 @@ export default function Modal({ children }) {
       {/* container for actual thing */}
       <dialog className={classes.modal}>{children}</dialog>
     </>,
-    document.getElementById("modal"),
+    document.getElementById("modal")!,
   );
 }

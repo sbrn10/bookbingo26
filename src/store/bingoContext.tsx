@@ -21,7 +21,7 @@ export type ContextType = {
   showEmojiPicker: boolean;
   setShowEmojiPicker: Dispatch<SetStateAction<boolean>>;
   updateReadStatus: (index: number) => void;
-  updateBookList: (index: number, object: object) => void;
+  updateBookList: (index: number, object: BookType) => void;
   addEmoji: (index: number, emoji: string) => void;
   deleteEmoji: (index: number, emoji: string) => void;
 };
