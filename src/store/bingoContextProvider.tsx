@@ -3,6 +3,12 @@ import bingoContext, { type ContextType, type BookType } from "./bingoContext";
 import { bookData } from "./bookData.js";
 
 export default function CtxProvider({ children }) {
+  let initialBookList: string | BookType[] = localStorage.getItem("bookList");
+  if (initialBookList) {
+    initialBookList = JSON.parse(initialBookList) as BookType[];
+  } else {
+    initialBookList = bookData as BookType[];
+  }
   const bingoCategories: string[] = [
     "short story collection",
     "micro history",
@@ -31,13 +37,49 @@ export default function CtxProvider({ children }) {
     "writer bio or memoir",
   ];
 
-  const bookList: BookType[] = bookData;
+  const [bookList, setBookList] = useState(initialBookList);
 
   const [showModal, setShowModal] = useState(false);
 
   const [showModalIndex, setShowModalIndex] = useState(0);
 
-  const [isEditable, setIsEditable] = useState(false);
+  const [isEditable, setIsEditable] = useState(true);
+
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+  function updateReadStatus(index: number) {
+    const oldBook = bookList[index];
+    const newBook = {
+      ...oldBook,
+      readStatus: oldBook.readStatus >= 2 ? 0 : oldBook.readStatus + 1,
+    };
+    updateBookList(index, newBook);
+  }
+
+  function updateBookList(index: number, newBook: BookType) {
+    const newList = bookList.toSpliced(index, 1, newBook);
+    setBookList(newList);
+  }
+
+  function addEmoji(index: number, emoji: string) {
+    const oldBook = bookList[index];
+    const newEmojiList = [...oldBook.emoji, emoji];
+    const newBook = {
+      ...oldBook,
+      emoji: newEmojiList,
+    };
+    updateBookList(index, newBook);
+  }
+
+  function deleteEmoji(index: number, emoji: string) {
+    const oldBook = bookList[index];
+    const newEmojiList = oldBook.emoji.filter((item) => item != emoji);
+    const newBook = {
+      ...oldBook,
+      emoji: newEmojiList,
+    };
+    updateBookList(index, newBook);
+  }
 
   const ctxValue: ContextType = {
     bingoCategories,
@@ -47,21 +89,13 @@ export default function CtxProvider({ children }) {
     showModalIndex,
     setShowModalIndex,
     isEditable,
-    setIsEditable
-    // bingoCategories: bingoState.bingoCategories,
-    // bookList: bingoState.bookList,
-    // updateReadStatus,
-    // updateBookList,
-    // showModal,
-    // setShowModal,
-    // modalIndex,
-    // setModalIndex,
-    // emojiIndex,
-    // setEmojiIndex,
-    // showEmojiPicker,
-    // setShowEmojiPicker,
-    // addEmojiToCard,
-    // deleteEmoji,
+    setIsEditable,
+    showEmojiPicker,
+    setShowEmojiPicker,
+    updateReadStatus,
+    updateBookList,
+    addEmoji,
+    deleteEmoji,
   };
 
   return (

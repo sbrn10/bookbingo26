@@ -15,7 +15,7 @@
 
 .cover {
   border: 1px solid gray;
-  max-width: 150px;
+  height: 200px;
 }
 
 .plainText {

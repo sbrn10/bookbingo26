@@ -18,6 +18,12 @@ export type ContextType = {
   setShowModalIndex: Dispatch<SetStateAction<number>>;
   isEditable: boolean;
   setIsEditable: Dispatch<SetStateAction<boolean>>;
+  showEmojiPicker: boolean;
+  setShowEmojiPicker: Dispatch<SetStateAction<boolean>>;
+  updateReadStatus: (index: number) => void;
+  updateBookList: (index: number, object: object) => void;
+  addEmoji: (index: number, emoji: string) => void;
+  deleteEmoji: (index: number, emoji: string) => void;
 };
 
 export const bingoContext = createContext<ContextType>({} as ContextType);
