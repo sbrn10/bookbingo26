@@ -79,6 +79,7 @@ export default function Book({ index }: BookProps) {
   function handleHoverOn() {
     if (!isEditable) return;
     setIsHovered(true);
+    setCanToggleColor(true);
   }
   function handleHoverOnDisableToggle() {
     if (!isEditable) return;
