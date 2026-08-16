@@ -20,19 +20,25 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
     <>
       <form ref={formRef}>
         <label htmlFor="title">Title:</label>
+        <div className={classes.plainText} hidden={isEditable}>
+          {card.title}
+        </div>
         <input
           id="title"
           name="title"
           defaultValue={card.title}
-          disabled={!isEditable}
+          hidden={!isEditable}
         ></input>
 
         <label htmlFor="author">Author:</label>
+        <div className={classes.plainText} hidden={isEditable}>
+          {card.author}
+        </div>
         <input
           id="author"
           name="author"
           defaultValue={card.author}
-          disabled={!isEditable}
+          hidden={!isEditable}
         ></input>
 
         <label>Cover: </label>
@@ -47,10 +53,15 @@ export default function BookDetails({ index, isEditable }: BookDetailsProps) {
         <textarea
           id="notes"
           name="notes"
-          hidden={!isEditable && !card.desc}
-          disabled={!isEditable}
+          hidden={!isEditable}
           defaultValue={card.desc}
         ></textarea>
+        <div
+          className={classes.plainText}
+          hidden={isEditable || (!isEditable && !card.desc)}
+        >
+          {card.desc}
+        </div>
       </form>
       {isEditable && (
         <div className={classes.center}>

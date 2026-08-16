@@ -15,7 +15,7 @@ export default function Book({ index }: BookProps) {
   const bgColor = colors[card.readStatus >= 3 ? 0 : card.readStatus];
 
   function handleCardClick() {
-    if (!card.readStatus) return;
+    if (!ctx.isEditable && !card.readStatus) return;
 
     ctx.setShowModalIndex(index);
     ctx.setShowModal(true);
