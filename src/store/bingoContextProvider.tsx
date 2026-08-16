@@ -8,6 +8,14 @@ export default function CtxProvider({ children }) {
     initialBookList = JSON.parse(initialBookList) as BookType[];
   } else {
     initialBookList = bookData as BookType[];
+    // initialBookList = Array(25).fill({
+    //   title: "",
+    //   author: "",
+    //   image: "",
+    //   readStatus: 0,
+    //   emoji: [],
+    //   desc: "",
+    // });
   }
   const bingoCategories: string[] = [
     "short story collection",
