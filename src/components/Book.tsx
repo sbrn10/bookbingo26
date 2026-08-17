@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import bingoContext, { type BookType } from "../store/bingoContext";
 import classes from "../css/grid.module.css";
 import { useState } from "react";
@@ -14,7 +14,14 @@ interface BookProps {
 export default function Book({ index, array, isEditable }: BookProps) {
   const ctx = useContext(bingoContext);
   const card = array[index];
-  const colors = ["#0000", "rgba(150, 183, 160, 1)", "rgb(82, 131, 255)"];
+
+  const colors = useMemo(() => {
+    return ["#0000", "rgba(150, 183, 160, 1)", "rgb(82, 131, 255)"];
+  }, []);
+
+  useEffect(() => {
+    setBgColor(colors[card.readStatus]);
+  }, [card, colors]);
 
   const [bgColor, setBgColor] = useState(colors[card.readStatus]);
 
