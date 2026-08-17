@@ -1,13 +1,16 @@
 {
-  "name": "bookbingots",
+  "name": "bookbingo26",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://sbrn10.github.io/bookbingo26/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "emoji-picker-react": "^4.19.1",
@@ -15,6 +18,7 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "@babel/core": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
