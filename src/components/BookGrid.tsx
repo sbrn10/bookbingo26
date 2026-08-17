@@ -21,7 +21,7 @@ export default function BookGrid() {
         </span>
         <div className={classes.buttons}>
           <button onClick={() => ctx.setIsEditable(true)}>Make Your Own</button>
-          <button onClick={() => ctx.setIsEditable(false)}>An example</button>
+          <button onClick={() => ctx.setIsEditable(false)}>Mine</button>
         </div>
         <h2>
           <a href="https://2026-book-bingo.tumblr.com">@2026-book-bingo</a> from
