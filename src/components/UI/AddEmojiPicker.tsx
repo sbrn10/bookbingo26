@@ -32,11 +32,4 @@ export default function AddEmojiPicker() {
     </>,
     document.getElementById(`card${ctx.showModalIndex}`)!,
   );
-  // return (<div>
-  //     <EmojiPicker
-  //         reactions={["1f44d", "2764-fe0f", "1f44e", "1f621", "1f480"]}
-  //         onEmojiClick={handleClick}
-  //         reactionsDefaultOpen={true}
-  //         style={{ scale: 0.75 }} />
-  // </div>);
 }
