@@ -16,14 +16,14 @@ export default function BookGrid() {
   return (
     <>
       <div className={classes.container}>
+        <div className={classes.buttons}>
+          <button onClick={() => ctx.setIsEditable(true)}>Make Your Own</button>
+          <button onClick={() => ctx.setIsEditable(false)}>An example</button>
+        </div>
         <h2>
           <a href="https://2026-book-bingo.tumblr.com">@2026-book-bingo</a> from
           @batmanisagatewaydrug
         </h2>
-        <div className={classes.buttons}>
-          <button onClick={()=>ctx.setIsEditable(true)}>Make Your Own</button>
-          <button onClick={()=>ctx.setIsEditable(false)}>An example</button>
-        </div>
         <div className={classes.grid}>
           {Array.from(Array(25)).map((_, index) => (
             <Book
