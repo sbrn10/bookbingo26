@@ -13,11 +13,16 @@ import { type BookType } from "../store/bingoContext";
 interface BookDetailsProps {
   index: number;
   isEditable: boolean;
+  array: BookType[];
 }
 
-export default function BookDetails({ index, isEditable }: BookDetailsProps) {
+export default function BookDetails({
+  index,
+  isEditable,
+  array,
+}: BookDetailsProps) {
   const ctx = useContext(bingoContext);
-  const card = ctx.bookList[index];
+  const card = array[index];
 
   const fileInputRef = useRef<null | HTMLInputElement>(null);
   const formRef = useRef<null | HTMLFormElement>(null);

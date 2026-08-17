@@ -2,7 +2,7 @@ import { useState } from "react";
 import bingoContext, { type ContextType, type BookType } from "./bingoContext";
 // import { bookData } from "./bookData.js";
 import type { PropsWithChildren } from "react";
-import jsonData from "./bookData.json";
+// import jsonData from "./bookData.json";
 
 export default function CtxProvider({ children }: PropsWithChildren) {
   let initialBookList: string | BookType[] | null =
@@ -10,17 +10,16 @@ export default function CtxProvider({ children }: PropsWithChildren) {
   if (initialBookList) {
     initialBookList = JSON.parse(initialBookList) as BookType[];
   } else {
-    // initialBookList = bookData as BookType[];
-    initialBookList = jsonData as BookType[];
+    // initialBookList = jsonData as BookType[];
 
-    // initialBookList = Array(25).fill({
-    //   title: "",
-    //   author: "",
-    //   image: "",
-    //   readStatus: 0,
-    //   emoji: [],
-    //   desc: "",
-    // });
+    initialBookList = Array(25).fill({
+      title: "",
+      author: "",
+      image: "",
+      readStatus: 0,
+      emoji: [],
+      desc: "",
+    });
   }
   const bingoCategories: string[] = [
     "short story collection",
