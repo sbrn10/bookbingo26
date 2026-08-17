@@ -16,6 +16,9 @@ export default function BookGrid() {
   return (
     <>
       <div className={classes.container}>
+        <span style={{ fontSize: "0.5em" }}>
+          Shh, graphic design is not my passion
+        </span>
         <div className={classes.buttons}>
           <button onClick={() => ctx.setIsEditable(true)}>Make Your Own</button>
           <button onClick={() => ctx.setIsEditable(false)}>An example</button>

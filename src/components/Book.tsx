@@ -146,6 +146,11 @@ export default function Book({ index, array, isEditable }: BookProps) {
             </div>
           </>
         )}
+        {!isEditable && card.desc && (
+          <div className={"overlay left is-open"}>
+            <span className="material-symbols-rounded">sms</span>
+          </div>
+        )}
         <div className="overlay right bottom is-open">
           {card.emoji.map(populateEmojis)}
         </div>
