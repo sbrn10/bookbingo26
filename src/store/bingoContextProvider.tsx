@@ -33,7 +33,7 @@ export default function CtxProvider({ children }: PropsWithChildren) {
     "literary fiction",
     "blurb buddies",
     "book about music",
-    "not originally published in English",
+    "not orig. written in English",
     "pink cover",
     "read + play a TTRPG",
     "2x older than you",
